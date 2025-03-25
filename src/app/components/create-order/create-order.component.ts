@@ -17,7 +17,6 @@ export class CreateOrderComponent implements OnInit {
 
   clients: any[] = [];
   products: any[] = [];
-  // productForms: any[] = [];
   orderForm!: FormGroup;
   errorMessage:string[] = [];
   successMessage: string = '';
