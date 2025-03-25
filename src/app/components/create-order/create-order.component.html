@@ -1,0 +1,92 @@
+<div class="container">
+    <h2>Crear Orden</h2>
+  
+    <div *ngIf="errorMessage.length > 0" class="alert alert-danger">
+      <ul>
+        <li *ngFor="let error of errorMessage">{{ error }}</li>
+      </ul>
+    </div>
+  
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  
+    <!-- Formulario para crear la orden -->
+    <form [formGroup]="orderForm" (ngSubmit)="createOrder()">
+      <!-- Seleccionar cliente -->
+      <div class="form-group">
+        <label for="client_id">Cliente</label>
+        <select
+          id="client_id"
+          formControlName="client_id"
+          class="form-control"
+          required
+        >
+         
+          <option *ngFor="let client of clients" [value]="client.id">
+            {{ client.name }}
+          </option>
+        </select>
+      </div>
+  
+      <!-- Seleccionar productos y cantidad -->
+      <div class="form-group">
+        <label for="product_id">Producto</label>
+        <select 
+          id="product_id"
+          class="form-control"
+          [(ngModel)]="selectedProductId"
+          [ngModelOptions]="{ standalone: true }"
+        >
+        
+          <option *ngFor="let product of products" [value]="product.id">
+            {{ product.name }} (Stock: {{ product.quantity }})
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="quantity">Cantidad</label>
+        <input
+          type="number"
+          id="quantity"
+          class="form-control"
+          [(ngModel)]="selectedQuantity"
+          [ngModelOptions]="{ standalone: true }"
+          min="1"
+        />
+      </div>
+  
+      <!-- Botón para agregar producto -->
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="addProduct(selectedProductId, selectedQuantity)"
+        [disabled]="!selectedProductId || !selectedQuantity"
+      >
+        Agregar Producto
+      </button>
+  
+      <!-- Lista de productos agregados -->
+      <div *ngIf="productForms.controls.length > 0">
+        <h4>Productos Agregados</h4>
+        <ul>
+          <li *ngFor="let productGroup of productForms.controls; let i = index">
+            Producto ID: {{ productGroup.value.product_id }}, Cantidad: {{ productGroup.value.quantity }}
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeProduct(i)">
+              Eliminar
+            </button>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Botón para crear la orden -->
+      <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">
+        <span *ngIf="!isLoading">Crear Orden</span>
+        <span *ngIf="isLoading" class="spinner-container">
+          <span class="spinner-small"></span>
+        </span>
+      </button>
+      
+    </form>
+  </div>
