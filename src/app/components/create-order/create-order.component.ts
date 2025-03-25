@@ -135,6 +135,7 @@ export class CreateOrderComponent implements OnInit {
   removeProduct(index: number): void {
     this.productForms.removeAt(index); 
   }
+  //
 
 
 }
