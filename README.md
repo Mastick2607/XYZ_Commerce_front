@@ -27,7 +27,7 @@ Vista para la gestión de órdenes de compra que permite:
 ```bash
  npm i
 ```
-3. arrancar el servidor
+3. Arrancar el servidor
 
 
 ```bash
