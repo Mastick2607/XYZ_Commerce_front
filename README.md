@@ -1,27 +1,38 @@
-# XYZCommerce
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+# Frontend XYZ Commerce
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📋 Descripción
 
-## Code scaffolding
+Vista para la gestión de órdenes de compra que permite:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Verificar disponibilidad de productos para clientes
+- Validar stock antes de crear órdenes
+- Registrar órdenes y actualizar inventario
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Instalación
 
-## Running unit tests
+1. Clonar el repositorio
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+  git clone https://github.com/Mastick2607/XYZ_Commerce_front.git
+  cd XYZ_Commerce_front
+  code . //para abrir el proyecto
+```
 
-## Running end-to-end tests
+2. Instalar dependencias
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+```bash
+ npm i
+```
+3. arrancar el servidor
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+```bash
+ng serve
+```
+
+Para ver el proyecto estará disponible en la ruta: http://localhost:4200/
+
